@@ -1,2 +1,2 @@
 # Ubuntu-20-DISA-STIGs-Compliance
-This script hardens an Ubuntu 20 system, complying with DISA STIGs Standards for Ubuntu 20.
+This script hardens an Ubuntu 20 system, complying with DISA STIGs Standards for Ubuntu 20 and other basic hardening best-practices.
