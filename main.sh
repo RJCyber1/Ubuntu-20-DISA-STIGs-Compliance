@@ -196,6 +196,7 @@ sudo chage -l system_account_name | grep expires > ~/stigs/system_acc_expiry_che
 echo -e "If any account does not expire within 72 hours of that account's creation, this is a finding.\nUse this command to fix it:\nsudo chage -E dollarsign(date -d "+3 days" +%F) account_name" >> ~/stigs/regularuser_acc_expiry_check.txt
 
 #sshd checks
+mv /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
 mv ~/pre-configured-files/sshd_config /etc/ssh/sshd_config
 
 #sudo group check
@@ -337,10 +338,6 @@ export TMOUT=600
 
 #/etc/sudoers.d check
 sudo egrep -i '(nopasswd|!authenticate)' /etc/sudoers /etc/sudoers.d/* > ~/stigs/sudoersd_check.txt
-
-#ssh checks
-mv /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
-mv ~/pre-configured-files/sshd_config /etc/ssh/sshd_config
 
 #journald (uncomment to enable)
 #sed -i 's/#\?ForwardToSyslog.*/ForwardToSyslog=yes/' /etc/systemd/journald.conf
